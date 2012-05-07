@@ -1,0 +1,10 @@
+tvdb2episodes.py is a simple script that uses the data from http://www.thetvdb.com to
+generate the episodes files for vdr-addon-seriestimer (a.k.a VDRSeriesTimer.pl)
+Currently this episodes files are also used in the xmltv2vdr plugin.
+
+If you are using this scripts for your own project please request an own api key here:
+http://thetvdb.com/?tab=apiregister
+
+* Dependencies
+tvshowinfo depends on the following packages to function:
+    - pytvdbapi <https://github.com/fuzzycode/pytvdbapi>
