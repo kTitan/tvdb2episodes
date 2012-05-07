@@ -3,7 +3,7 @@
 from pytvdbapi import api
 import argparse,sys
 
-tvdb_api_key = "083D567677C1B555"
+tvdb_api_key = "032EAD3335E6F62D"
 
 #
 ## main
