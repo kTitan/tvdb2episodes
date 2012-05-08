@@ -1,14 +1,22 @@
 #!/usr/bin/env python3.2
 # -*- coding: utf-8 -*-
+# pylint: disable-msg=C0301
+"""
+This little program is connecting to thetvdb.com to get the requested show
+and converts the data to a valid episodes file.
+"""
+
 from pytvdbapi import api
 import argparse
 import sys
 
-tvdb_api_key = "032EAD3335E6F62D"
+__tvdb_apikey__ = "032EAD3335E6F62D"
 
 
 def main():
-    global args
+    """
+    main program to generate a valid episodes file
+    """
 
     # Parse Arguments
     parser = argparse.ArgumentParser()
@@ -20,8 +28,8 @@ def main():
     args = parser.parse_args()
 
     # use new pytvdbapi
-    db = api.TVDB(tvdb_api_key)
-    dbsearch = db.search(args.tvshow, args.language)
+    conn = api.TVDB(__tvdb_apikey__)
+    dbsearch = conn.search(args.tvshow, args.language)
     show = dbsearch[0]
 
     # clean episode counter
@@ -32,7 +40,7 @@ def main():
         filename = args.directory + "/" + show.SeriesName + ".episodes"
         try:
             episodefile = open(filename, mode="w", encoding="utf-8")
-        except:
+        except IOError:
             sys.stderr.write("Could not open output file. Does the directory " + args.directory + " exist and is writeable?\n")
             sys.exit(1)
 
