@@ -47,7 +47,7 @@ def main():
 
             # Output to file or to screen
             if args.write:
-                print("%02d" % episode.SeasonNumber + "\t" + "%02d" % episode.EpisodeNumber + "\t" + "%02d" % count + "\t" + episode.EpisodeName, file=episodefile)
+                episodefile.write("%02d" % episode.SeasonNumber + "\t" + "%02d" % episode.EpisodeNumber + "\t" + "%02d" % count + "\t" + episode.EpisodeName + "\n")
             else:
                 print("%02d" % episode.SeasonNumber + "\t" + "%02d" % episode.EpisodeNumber + "\t" + "%02d" % count + "\t" + episode.EpisodeName)
 
